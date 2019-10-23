@@ -1,0 +1,12 @@
+fid = fopen('adjusted');
+C = textscan(fid, '%f');
+fclose(fid);
+D = cell2mat(C);
+E = reshape(D,[1024,1024]);
+F = fft2(fftshift(E));
+F = ifftshift(F);
+F = abs(F);
+figure;
+imagesc(E);
+figure;
+imagesc(log(F + 1)); 
